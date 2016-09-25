@@ -1,65 +1,37 @@
-<!doctype html>
-<html lang="en">
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr" >
 <head>
-    <meta charset='utf-8'>
-    <title>michaelchesser.com</title>
-    <style>
-        body {
-            font: 13px Helvetica, Arial;
-            text-align: center;
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        #bounds {
-            display: inline-block;
-            padding: 10px;
-            margin: 0px auto;
-            border: solid 1px #808080;
-            box-shadow: #a0a0a0 0px 0px 2px 2px;
-            text-align: left;
-        }
-
-        .title_box #title {
-            position: relative;
-            top: -0.5em;
-            margin-left: 1em;
-            display: inline;
-            background-color: white;
-            padding: 0 10px 0 10px;
-            font-weight: bold;
-        }
-
-        .title_box #content {
-            text-align: left;
-            padding: 10px;
-        }
-
-        .title_box {
-            text-align: center;
-            margin-top: 10px;
-            border: #808080 1px solid;
-        }
-    </style>
+	<title>michaelchesser.com</title>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
-<body onload="start()">
-    <div id="bounds" style="width: 800px">
-        <h1>michaelchesser.com</h1>
 
-        <div class="title_box">
-            <div id="title">Projects</div>
-            <div id="content" style="line-height: 200%">
+<body>
+	<div id="main">
+		<div id="header">
+			<div class="container">
+				<a class="title">Michael Chesser's Blog</a>
+				<nav class="site-nav right">
+					<a href="https://github.com/mchesser/">Github</a>
+				</nav>
+				<div style="clear:both"></div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="content">
+				<h3>Projects</h3>
                 <ul>
                     <li><a href="http://trackerbots.com">TrackerBots</a></li>
                     <li><a href="https://github.com/mchesser/pikemon">Pikemon</a></li>
                     <li><a href="docs/trackerbots_simulator/simulation/index.html">Simulation documentation</a></li>
                 </ul>
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+
+		<div id="footer">
+			 Michael Chesser (2016)
+		</div>
+
+	</div>
 </body>
 </html>
