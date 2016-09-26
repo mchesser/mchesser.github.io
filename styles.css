@@ -42,6 +42,7 @@ h1 a:hover,h3 a:hover {
 #header {
 	background-color: #EEE;
 	border-bottom: solid 5px #CCC;
+	line-height: 50px;
 }
 #header .title {
 	font-size: 18pt;
