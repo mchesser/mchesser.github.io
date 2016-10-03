@@ -97,6 +97,7 @@
 <span id="53">53</span>
 <span id="54">54</span>
 <span id="55">55</span>
+<span id="56">56</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>uav</span>::{<span class='ident'>UavState</span>, <span class='ident'>UavConfig</span>};
 <span class='kw'>use</span> <span class='ident'>uav</span>::<span class='ident'>flight_patterns</span>::<span class='op'>*</span>;
@@ -142,17 +143,19 @@
 }
 
 <span class='kw'>fn</span> <span class='ident'>get_flight_pattern</span>(<span class='ident'>config</span>: <span class='ident'>UavConfig</span>) <span class='op'>-&gt;</span> <span class='ident'>Box</span><span class='op'>&lt;</span><span class='ident'>FlightPattern</span> <span class='op'>+</span> <span class='ident'>Send</span><span class='op'>&gt;</span> {
+    <span class='kw'>use</span> <span class='ident'>uav</span>::<span class='ident'>PatternType</span>::<span class='op'>*</span>;
+
     <span class='kw'>let</span> <span class='ident'>size</span> <span class='op'>=</span> <span class='ident'>config</span>.<span class='ident'>controller</span>.<span class='ident'>pattern_size</span>;
     <span class='kw'>let</span> <span class='ident'>speed</span> <span class='op'>=</span> <span class='ident'>config</span>.<span class='ident'>speed</span>;
     <span class='kw'>let</span> <span class='ident'>center</span> <span class='op'>=</span> [<span class='ident'>config</span>.<span class='ident'>controller</span>.<span class='ident'>pattern_center</span>[<span class='number'>0</span>], <span class='ident'>config</span>.<span class='ident'>controller</span>.<span class='ident'>pattern_center</span>[<span class='number'>1</span>], <span class='number'>50.0</span>];
 
     <span class='kw'>match</span> <span class='ident'>config</span>.<span class='ident'>controller</span>.<span class='ident'>pattern_type</span> {
-        <span class='number'>0</span> <span class='op'>=&gt;</span> <span class='ident'>Box</span>::<span class='ident'>new</span>(<span class='ident'>EllipsePattern</span>::<span class='ident'>new</span>(<span class='ident'>speed</span>, <span class='ident'>size</span>[<span class='number'>0</span>], <span class='ident'>size</span>[<span class='number'>1</span>], <span class='ident'>center</span>)),
-        <span class='number'>1</span> <span class='op'>=&gt;</span> <span class='ident'>Box</span>::<span class='ident'>new</span>(<span class='ident'>RectanglePattern</span>::<span class='ident'>new</span>(<span class='ident'>speed</span>, <span class='ident'>size</span>[<span class='number'>0</span>], <span class='ident'>size</span>[<span class='number'>1</span>], <span class='ident'>center</span>)),
-        <span class='number'>2</span> <span class='op'>=&gt;</span> <span class='ident'>Box</span>::<span class='ident'>new</span>(<span class='ident'>DirectPattern</span>::<span class='ident'>new</span>(<span class='ident'>speed</span>, <span class='ident'>center</span>, <span class='ident'>center</span>)),
-        _ <span class='op'>=&gt;</span> <span class='macro'>unimplemented</span><span class='macro'>!</span>(),
+        <span class='ident'>Elliptical</span> <span class='op'>=&gt;</span> <span class='ident'>Box</span>::<span class='ident'>new</span>(<span class='ident'>EllipsePattern</span>::<span class='ident'>new</span>(<span class='ident'>speed</span>, <span class='ident'>size</span>[<span class='number'>0</span>], <span class='ident'>size</span>[<span class='number'>1</span>], <span class='ident'>center</span>)),
+        <span class='ident'>Rectangular</span> <span class='op'>=&gt;</span> <span class='ident'>Box</span>::<span class='ident'>new</span>(<span class='ident'>RectanglePattern</span>::<span class='ident'>new</span>(<span class='ident'>speed</span>, <span class='ident'>size</span>[<span class='number'>0</span>], <span class='ident'>size</span>[<span class='number'>1</span>], <span class='ident'>center</span>)),
+        <span class='ident'>Direct</span> <span class='op'>=&gt;</span> <span class='ident'>Box</span>::<span class='ident'>new</span>(<span class='ident'>DirectPattern</span>::<span class='ident'>new</span>(<span class='ident'>speed</span>, <span class='ident'>center</span>, <span class='ident'>center</span>)),
     }
-}</pre>
+}
+</pre>
 </section>
     <section id='search' class="content hidden"></section>
 

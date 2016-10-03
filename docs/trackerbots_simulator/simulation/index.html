@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/simulation/src/lib.rs.html#1-157' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-0' class='srclink' href='../src/simulation/src/lib.rs.html#1-155' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>This crate provides functionality for configuring and running a simulation of a range-based
 tracking system.</p>
 
@@ -67,7 +67,7 @@ use a new <a href="./struct.SimulationRunner.html"><code>SimulationRunner</code>
 
 <span class='kw'>for</span> <span class='ident'>frame</span> <span class='kw'>in</span> (<span class='number'>0</span>..<span class='ident'>num_steps</span>).<span class='ident'>map</span>(<span class='op'>|</span>_<span class='op'>|</span> <span class='ident'>simulation_runner</span>.<span class='ident'>step</span>(<span class='ident'>dt</span>)) {
     <span class='comment'>// Use simulation frame ...</span>
-}</pre>
+}<a class='test-arrow' target='_blank' href=''>Run</a></pre>
 
 <p>Alternatively you can define a specific configuration by creating a <a href="./struct.SimulationConfig.html"><code>SimulationConfig</code></a>
 explicitly, or by loading one from a JSON file:</p>
@@ -80,7 +80,7 @@ explicitly, or by loading one from a JSON file:</p>
 
 <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>simulation_runner</span> <span class='op'>=</span> <span class='ident'>SimulationRunner</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='ident'>config</span>);
 
-<span class='comment'>// Use simulation runner ...</span></pre>
+<span class='comment'>// Use simulation runner ...</span><a class='test-arrow' target='_blank' href=''>Run</a></pre>
 
 <pre class='rust rust-example-rendered'>
 <span class='comment'>// Json loading using serde_json</span>
@@ -92,7 +92,7 @@ explicitly, or by loading one from a JSON file:</p>
 
 <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>simulation_runner</span> <span class='op'>=</span> <span class='ident'>SimulationRunner</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='ident'>config</span>);
 
-<span class='comment'>// Use simulation runner ...</span></pre>
+<span class='comment'>// Use simulation runner ...</span><a class='test-arrow' target='_blank' href=''>Run</a></pre>
 
 <p>For more information about custom configurations see the documentation for <a href="./struct.SimulationConfig.html"><code>SimulationConfig</code></a>.</p>
 
@@ -109,12 +109,12 @@ loading (as shown above). The default configuration corresponds to the following
       <span class='string'>&quot;controller&quot;</span>: {
         <span class='string'>&quot;pattern_size&quot;</span>: [<span class='number'>50.0</span>, <span class='number'>50.0</span>],
         <span class='string'>&quot;pattern_center&quot;</span>: [<span class='number'>50.0</span>, <span class='number'>50.0</span>],
-        <span class='string'>&quot;pattern_type&quot;</span>: <span class='number'>0</span>
+        <span class='string'>&quot;pattern_type&quot;</span>: <span class='string'>&quot;Elliptical&quot;</span>
       },
       <span class='string'>&quot;receiver&quot;</span>: {
         <span class='string'>&quot;signal_noise&quot;</span>: <span class='number'>0.01</span>,
-        <span class='string'>&quot;gain_pattern&quot;</span>: <span class='number'>0</span>,
-        <span class='string'>&quot;propagation_model&quot;</span>: <span class='number'>0</span>
+        <span class='string'>&quot;gain_pattern&quot;</span>: <span class='string'>&quot;Uniform&quot;</span>,
+        <span class='string'>&quot;propagation_model&quot;</span>: <span class='string'>&quot;FreeSpace&quot;</span>
       }
     }
   ],
@@ -128,91 +128,64 @@ loading (as shown above). The default configuration corresponds to the following
   <span class='string'>&quot;map_size&quot;</span>: [<span class='number'>100.0</span>, <span class='number'>100.0</span>],
   <span class='string'>&quot;num_particles&quot;</span>: <span class='number'>10000</span>,
   <span class='string'>&quot;particle_noise&quot;</span>: <span class='number'>2.0</span>
-}</pre>
-</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+}<a class='test-arrow' target='_blank' href=''>Run</a></pre>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='struct' href='struct.AnimalConfig.html'
-                                  title='simulation::AnimalConfig'>AnimalConfig</a></td>
-                           <td class='docblock short'>
-                                <p>Configuration options for an animal in a simulation</p>
+                           <td><a class='mod' href='animal/index.html'
+                                  title='simulation::animal'>animal</a></td>
+                           <td class='docblock-short'>
+                                
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='struct' href='struct.AnimalState.html'
-                                  title='simulation::AnimalState'>AnimalState</a></td>
-                           <td class='docblock short'>
-                                <p>The state of an animal at a particular point in time</p>
+                           <td><a class='mod' href='signal/index.html'
+                                  title='simulation::signal'>signal</a></td>
+                           <td class='docblock-short'>
+                                
                            </td>
                        </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='uav/index.html'
+                                  title='simulation::uav'>uav</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.FilterFrame.html'
                                   title='simulation::FilterFrame'>FilterFrame</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>A frame representing a single target (i.e. animal) at a particular point in time</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.Measurement.html'
                                   title='simulation::Measurement'>Measurement</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>A measurement taken by a UAV at a particular point in time</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Particle.html'
-                                  title='simulation::Particle'>Particle</a></td>
-                           <td class='docblock short'>
-                                <p>The representation of a particle in the particle filter</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.SignalConfig.html'
-                                  title='simulation::SignalConfig'>SignalConfig</a></td>
-                           <td class='docblock short'>
-                                <p>Configuration options for a signal model</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.SimulationConfig.html'
                                   title='simulation::SimulationConfig'>SimulationConfig</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>Configuration options for a simulation</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.SimulationFrame.html'
                                   title='simulation::SimulationFrame'>SimulationFrame</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>A snapshot of the simulation at a particular point in time</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.SimulationRunner.html'
                                   title='simulation::SimulationRunner'>SimulationRunner</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>A structure for running a configured simulation</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.UavConfig.html'
-                                  title='simulation::UavConfig'>UavConfig</a></td>
-                           <td class='docblock short'>
-                                <p>Configuration options for a UAV in the simulation</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.UavController.html'
-                                  title='simulation::UavController'>UavController</a></td>
-                           <td class='docblock short'>
-                                <p>Configuration options for how the UAV is controlled</p>
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.UavState.html'
-                                  title='simulation::UavState'>UavState</a></td>
-                           <td class='docblock short'>
-                                <p>The state of the uav at a particular point in time</p>
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

@@ -203,14 +203,12 @@
 <span id="159">159</span>
 <span id="160">160</span>
 <span id="161">161</span>
-<span id="162">162</span>
 </pre><pre class='rust '>
 <span class='kw'>mod</span> <span class='ident'>animal_runner</span>;
 <span class='kw'>mod</span> <span class='ident'>filter_runner</span>;
 <span class='kw'>mod</span> <span class='ident'>measurement</span>;
 <span class='kw'>mod</span> <span class='ident'>uav_runner</span>;
 
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>filter_runner</span>::<span class='ident'>Particle</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>measurement</span>::<span class='ident'>Measurement</span>;
 
 <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>animal_runner</span>::<span class='ident'>AnimalRunner</span>;
@@ -238,7 +236,7 @@
     <span class='kw'>pub</span> <span class='ident'>animal_state</span>: <span class='ident'>AnimalState</span>,
 
     <span class='doccomment'>/// The current list of particles from the particle filter</span>
-    <span class='kw'>pub</span> <span class='ident'>particles</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>Particle</span><span class='op'>&gt;</span>,
+    <span class='kw'>pub</span> <span class='ident'>particles</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>AnimalState</span><span class='op'>&gt;</span>,
 
     <span class='doccomment'>/// An estimate of the animal&#39;s true state based on the mean value of all the particles</span>
     <span class='kw'>pub</span> <span class='ident'>particles_mean</span>: <span class='ident'>AnimalState</span>,
@@ -354,7 +352,7 @@
 }
 
 <span class='doccomment'>/// Calculates the mean of a list of particle</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>particles_mean</span>(<span class='ident'>particles</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>Particle</span>]) <span class='op'>-&gt;</span> <span class='ident'>AnimalState</span> {
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>particles_mean</span>(<span class='ident'>particles</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>AnimalState</span>]) <span class='op'>-&gt;</span> <span class='ident'>AnimalState</span> {
     <span class='kw'>let</span> <span class='ident'>len</span> <span class='op'>=</span> <span class='ident'>particles</span>.<span class='ident'>len</span>() <span class='kw'>as</span> <span class='ident'>f32</span>;
 
     <span class='kw'>let</span> <span class='ident'>position_sum</span> <span class='op'>=</span> <span class='ident'>particles</span>.<span class='ident'>iter</span>().<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>x</span><span class='op'>|</span> <span class='ident'>x</span>.<span class='ident'>position</span>)

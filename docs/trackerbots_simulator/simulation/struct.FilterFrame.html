@@ -47,23 +47,23 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-447' class='srclink' href='../src/simulation/src/simulation_runner/mod.rs.html#29-38' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-216' class='srclink' href='../src/simulation/src/simulation_runner/mod.rs.html#28-37' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct FilterFrame {
-    pub animal_state: <a class='struct' href='../simulation/struct.AnimalState.html' title='simulation::AnimalState'>AnimalState</a>,
-    pub particles: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../simulation/struct.Particle.html' title='simulation::Particle'>Particle</a>&gt;,
-    pub particles_mean: <a class='struct' href='../simulation/struct.AnimalState.html' title='simulation::AnimalState'>AnimalState</a>,
+    pub animal_state: <a class='struct' href='../simulation/animal/struct.AnimalState.html' title='simulation::animal::AnimalState'>AnimalState</a>,
+    pub particles: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../simulation/animal/struct.AnimalState.html' title='simulation::animal::AnimalState'>AnimalState</a>&gt;,
+    pub particles_mean: <a class='struct' href='../simulation/animal/struct.AnimalState.html' title='simulation::animal::AnimalState'>AnimalState</a>,
 }</pre><div class='docblock'><p>A frame representing a single target (i.e. animal) at a particular point in time</p>
 </div><h2 class='fields'>Fields</h2><span id='structfield.animal_state' class='structfield'>
                            <span id='animal_state.v' class='invisible'>
-                           <code>animal_state: <a class='struct' href='../simulation/struct.AnimalState.html' title='simulation::AnimalState'>AnimalState</a></code>
+                           <code>animal_state: <a class='struct' href='../simulation/animal/struct.AnimalState.html' title='simulation::animal::AnimalState'>AnimalState</a></code>
                            </span></span><span class='stab '></span><div class='docblock'><p>The animal&#39;s true state</p>
 </div><span id='structfield.particles' class='structfield'>
                            <span id='particles.v' class='invisible'>
-                           <code>particles: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../simulation/struct.Particle.html' title='simulation::Particle'>Particle</a>&gt;</code>
+                           <code>particles: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../simulation/animal/struct.AnimalState.html' title='simulation::animal::AnimalState'>AnimalState</a>&gt;</code>
                            </span></span><span class='stab '></span><div class='docblock'><p>The current list of particles from the particle filter</p>
 </div><span id='structfield.particles_mean' class='structfield'>
                            <span id='particles_mean.v' class='invisible'>
-                           <code>particles_mean: <a class='struct' href='../simulation/struct.AnimalState.html' title='simulation::AnimalState'>AnimalState</a></code>
+                           <code>particles_mean: <a class='struct' href='../simulation/animal/struct.AnimalState.html' title='simulation::animal::AnimalState'>AnimalState</a></code>
                            </span></span><span class='stab '></span><div class='docblock'><p>An estimate of the animal&#39;s true state based on the mean value of all the particles</p>
 </div></section>
     <section id='search' class="content hidden"></section>

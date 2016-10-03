@@ -109,6 +109,8 @@
 <span id="65">65</span>
 <span id="66">66</span>
 <span id="67">67</span>
+<span id="68">68</span>
+<span id="69">69</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>rand</span>;
 <span class='kw'>use</span> <span class='ident'>rand</span>::<span class='ident'>distributions</span>::{<span class='ident'>Normal</span>, <span class='ident'>IndependentSample</span>};
@@ -140,7 +142,7 @@
         <span class='ident'>MeasurementModel</span> {
             <span class='ident'>noise_distribution</span>: <span class='ident'>Normal</span>::<span class='ident'>new</span>(<span class='number'>0.0</span>, <span class='ident'>config</span>.<span class='ident'>signal_noise</span> <span class='kw'>as</span> <span class='ident'>f64</span>),
             <span class='ident'>noise_distribution_prob</span>: <span class='ident'>Gaussian</span>::<span class='ident'>new</span>(<span class='number'>0.0</span>, <span class='ident'>config</span>.<span class='ident'>signal_noise</span> <span class='kw'>as</span> <span class='ident'>f64</span>),
-            <span class='ident'>rssi_model</span>: <span class='ident'>get_rssi_model</span>(<span class='ident'>config</span>)
+            <span class='ident'>rssi_model</span>: <span class='ident'>get_rssi_model</span>(<span class='ident'>config</span>),
         }
     }
 
@@ -165,18 +167,21 @@
 
 <span class='doccomment'>/// Generate an appropriate rssi model based on the simulator config</span>
 <span class='kw'>fn</span> <span class='ident'>get_rssi_model</span>(<span class='ident'>config</span>: <span class='ident'>SignalConfig</span>) <span class='op'>-&gt;</span> <span class='ident'>RssiModel</span><span class='op'>&lt;</span><span class='kw'>fn</span>(<span class='ident'>UavState</span>, [<span class='ident'>f32</span>; <span class='number'>3</span>]) <span class='op'>-&gt;</span> <span class='ident'>f32</span><span class='op'>&gt;</span> {
+    <span class='kw'>use</span> <span class='ident'>signal</span>::{<span class='ident'>GainPattern</span>, <span class='ident'>PropagationModel</span>};
+
     <span class='kw'>let</span> <span class='ident'>radiation_pattern</span> <span class='op'>=</span> <span class='kw'>match</span> <span class='ident'>config</span>.<span class='ident'>gain_pattern</span> {
-        <span class='number'>0</span> <span class='op'>=&gt;</span> <span class='ident'>signal</span>::<span class='ident'>omni_directional_model</span>(),
-        _ <span class='op'>=&gt;</span> <span class='ident'>signal</span>::<span class='ident'>basic_radiation_model</span>(),
+        <span class='ident'>GainPattern</span>::<span class='ident'>Uniform</span> <span class='op'>=&gt;</span> <span class='ident'>signal</span>::<span class='ident'>omni_directional_model</span>(),
+        <span class='ident'>GainPattern</span>::<span class='ident'>Figure8</span> <span class='op'>=&gt;</span> <span class='ident'>signal</span>::<span class='ident'>basic_radiation_model</span>(),
     };
 
     <span class='kw'>let</span> <span class='ident'>propagation_model</span> <span class='op'>=</span> <span class='kw'>match</span> <span class='ident'>config</span>.<span class='ident'>propagation_model</span> {
-        <span class='number'>0</span> <span class='op'>=&gt;</span> <span class='ident'>signal</span>::<span class='ident'>path_loss_model</span>,
-        _ <span class='op'>=&gt;</span> <span class='ident'>signal</span>::<span class='ident'>two_wave_model</span>,
+        <span class='ident'>PropagationModel</span>::<span class='ident'>FreeSpace</span> <span class='op'>=&gt;</span> <span class='ident'>signal</span>::<span class='ident'>path_loss_model</span>,
+        <span class='ident'>PropagationModel</span>::<span class='ident'>TwoWave</span> <span class='op'>=&gt;</span> <span class='ident'>signal</span>::<span class='ident'>two_wave_model</span>,
     };
 
     <span class='ident'>RssiModel</span>::<span class='ident'>new</span>(<span class='ident'>radiation_pattern</span>, <span class='ident'>propagation_model</span>)
-}</pre>
+}
+</pre>
 </section>
     <section id='search' class="content hidden"></section>
 

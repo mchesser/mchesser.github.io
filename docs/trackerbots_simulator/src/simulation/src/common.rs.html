@@ -94,17 +94,17 @@
 
 <span class='doccomment'>/// Calculates the distance between two points</span>
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>distance</span>(<span class='ident'>p1</span>: [<span class='ident'>f32</span>; <span class='number'>3</span>], <span class='ident'>p2</span>: [<span class='ident'>f32</span>; <span class='number'>3</span>]) <span class='op'>-&gt;</span> <span class='ident'>f32</span> {
-    (<span class='ident'>p1</span>.<span class='ident'>into</span>() : <span class='ident'>Vector3</span><span class='op'>&lt;</span><span class='ident'>f32</span><span class='op'>&gt;</span>).<span class='ident'>distance</span>(<span class='ident'>p2</span>.<span class='ident'>into</span>())
+    (<span class='ident'>p1</span>.<span class='ident'>into</span>(): <span class='ident'>Vector3</span><span class='op'>&lt;</span><span class='ident'>f32</span><span class='op'>&gt;</span>).<span class='ident'>distance</span>(<span class='ident'>p2</span>.<span class='ident'>into</span>())
 }
 
 <span class='doccomment'>/// Returns a vector with the same direction, but with a magnitude of 1.</span>
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>normalize</span>(<span class='ident'>vector</span>: [<span class='ident'>f32</span>; <span class='number'>3</span>]) <span class='op'>-&gt;</span> [<span class='ident'>f32</span>; <span class='number'>3</span>] {
-    (<span class='ident'>vector</span>.<span class='ident'>into</span>() : <span class='ident'>Vector3</span><span class='op'>&lt;</span><span class='ident'>f32</span><span class='op'>&gt;</span>).<span class='ident'>normalize</span>().<span class='ident'>into</span>()
+    (<span class='ident'>vector</span>.<span class='ident'>into</span>(): <span class='ident'>Vector3</span><span class='op'>&lt;</span><span class='ident'>f32</span><span class='op'>&gt;</span>).<span class='ident'>normalize</span>().<span class='ident'>into</span>()
 }
 
 <span class='doccomment'>/// Returns a vector with the same direction and a given magnitude.</span>
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>normalize_to</span>(<span class='ident'>vector</span>: [<span class='ident'>f32</span>; <span class='number'>3</span>], <span class='ident'>x</span>: <span class='ident'>f32</span>) <span class='op'>-&gt;</span> [<span class='ident'>f32</span>; <span class='number'>3</span>] {
-    (<span class='ident'>vector</span>.<span class='ident'>into</span>() : <span class='ident'>Vector3</span><span class='op'>&lt;</span><span class='ident'>f32</span><span class='op'>&gt;</span>).<span class='ident'>normalize_to</span>(<span class='ident'>x</span>).<span class='ident'>into</span>()
+    (<span class='ident'>vector</span>.<span class='ident'>into</span>(): <span class='ident'>Vector3</span><span class='op'>&lt;</span><span class='ident'>f32</span><span class='op'>&gt;</span>).<span class='ident'>normalize_to</span>(<span class='ident'>x</span>).<span class='ident'>into</span>()
 }
 
 <span class='doccomment'>/// Linearly interpolates between two points</span>

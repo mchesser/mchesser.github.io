@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["AnimalConfig","Configuration options for an animal in a simulation"],["AnimalState","The state of an animal at a particular point in time"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["PatternType",""]],"struct":[["UavConfig","Configuration options for a UAV in the simulation"],["UavController","Configuration options for how the UAV is controlled"],["UavState","The state of the uav at a particular point in time"]]});
